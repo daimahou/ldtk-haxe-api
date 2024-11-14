@@ -125,6 +125,16 @@ If you want to start supporting this future update easily, please refer to this 
 	@internal
 	var defaultGridSize: Int;
 
+	/** Default grid width for new layers **/
+	@added("1.5.4-daimahou")
+	@internal
+	var defaultGridWidth: Int;
+
+	/** Default grid height for new layers **/
+	@added("1.5.4-daimahou")
+	@internal
+	var defaultGridHeight: Int;
+
 	/** Default width for new entities **/
 	@added("1.3.4")
 	@internal
