@@ -122,8 +122,8 @@ If you want to start supporting this future update easily, please refer to this 
 
 
 	/** Default grid size for new layers **/
-	@internal
-	var defaultGridSize: Int;
+	// @internal
+	// var defaultGridSize: Int;
 
 	/** Default grid width for new layers **/
 	@added("1.5.4-daimahou")
@@ -442,7 +442,9 @@ typedef LayerInstanceJson = {
 	var __cHei: Int;
 
 	/** Grid size **/
-	var __gridSize: Int;
+	// var __gridSize: Int;
+	var __gridWid: Int;
+	var __gridHei: Int;
 
 	/** Layer opacity as Float [0-1] **/
 	@added("0.4.0")
@@ -787,7 +789,15 @@ typedef LayerDefJson = {
 	var uiColor: Null<String>;
 
 	/** Width and height of the grid in pixels **/
-	var gridSize: Int;
+	// var gridSize: Int;
+
+	/** Width of the grid in pixels **/
+	@added("1.5.4-daimahou")
+	var gridWid: Int;
+
+	/** Height of the grid in pixels **/
+	@added("1.5.4-daimahou")
+	var gridHei: Int;
 
 	/** Width of the optional "guide" grid in pixels **/
 	@internal
@@ -1419,7 +1429,8 @@ typedef TilesetDefJson = {
 	/** Image height in pixels **/
 	var pxHei: Int;
 
-	var tileGridSize: Int;
+	var tileGridWid: Int;
+	var tileGridHei: Int;
 
 	/** Space in pixels between all tiles **/
 	var spacing: Int;
