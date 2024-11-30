@@ -21,7 +21,8 @@ class Layer {
 	public var visible : Bool;
 
 	/** Grid size in pixels **/
-	public var gridSize : Int;
+	public var gridWidth : Int;
+	public var gridHeight : Int;
 
 	/** Grid-based layer width **/
 	public var cWid : Int;
@@ -56,11 +57,12 @@ class Layer {
 			try LayerType.createByName(json.__type)
 			catch(e:Dynamic) throw 'Unknown layer type ${json.__type} in $identifier';
 		iid = json.iid;
-		gridSize = json.__gridSize;
+		gridWidth = json.__gridWid;
+		gridHeight = json.__gridHei;
 		cWid = json.__cWid;
 		cHei = json.__cHei;
-		pxWid = cWid * json.__gridSize;
-		pxHei = cHei * json.__gridSize;
+		pxWid = cWid * json.__gridWid;
+		pxHei = cHei * json.__gridHei;
 		pxTotalOffsetX = json.__pxTotalOffsetX;
 		pxTotalOffsetY = json.__pxTotalOffsetY;
 		opacity = json.__opacity;

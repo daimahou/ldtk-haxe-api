@@ -360,8 +360,8 @@ class Tests {
 			CiAssert.isNotNull( defaultWorld.all_levels.Main_tests.l_TileTest.tileset );
 			// CiAssert.isNotNull( defaultWorld.all_levels.Main_tests.l_TileTest.tileset.atlasBytes );
 			CiAssert.isTrue( defaultWorld.all_levels.Main_tests.l_TileTest.getTileStackAt(1,4)[0].tileId>=0 );
-			var gridSize = defaultWorld.all_levels.Main_tests.l_TileTest.tileset.tileGridSize;
-			CiAssert.isTrue( defaultWorld.all_levels.Main_tests.l_TileTest.tileset.getAtlasX(1)==gridSize );
+			var gridWidth = defaultWorld.all_levels.Main_tests.l_TileTest.tileset.tileGridWidth;
+			CiAssert.isTrue( defaultWorld.all_levels.Main_tests.l_TileTest.tileset.getAtlasX(1)==gridWidth );
 			CiAssert.isTrue( defaultWorld.all_levels.Main_tests.l_TileTest.tileset.getAtlasY(1)==0 );
 
 			// Tilesets enum tags
