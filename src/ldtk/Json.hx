@@ -442,7 +442,6 @@ typedef LayerInstanceJson = {
 	var __cHei: Int;
 
 	/** Grid size **/
-	// var __gridSize: Int;
 	var __gridWid: Int;
 	var __gridHei: Int;
 

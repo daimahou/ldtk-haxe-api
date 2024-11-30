@@ -14,7 +14,8 @@ class Tileset {
 	public var relPath : String;
 
 	/** Tile size in pixels **/
-	public var tileGridSize : Int;
+	public var tileGridWidth : Int;
+	public var tileGridHeight : Int;
 	// TODO support tile spacing
 
 	/** Tileset width in pixels **/
@@ -29,7 +30,7 @@ class Tileset {
 	/** Spacing between each tile in pixels */
 	public var spacing: Int;
 
-	var cWid(get,never) : Int; inline function get_cWid() return Math.ceil(pxWid/tileGridSize);
+	var cWid(get,never) : Int; inline function get_cWid() return Math.ceil(pxWid/tileGridWidth);
 
 	/** Untyped Enum based tags (stored as String). The "typed" getter method is created in macro. **/
 	var untypedTags : Map< String, Map<Int,Int> >;
@@ -39,7 +40,8 @@ class Tileset {
 		this.json = json;
 		untypedProject = p;
 		identifier = json.identifier;
-		tileGridSize = json.tileGridSize;
+		tileGridWidth = json.tileGridWid;
+		tileGridHeight = json.tileGridHei;
 		relPath = json.relPath;
 		pxWid = json.pxWid;
 		pxHei = json.pxHei;
@@ -67,14 +69,14 @@ class Tileset {
 		Get X pixel coordinate (in atlas image) from a specified tile ID
 	**/
 	public inline function getAtlasX(tileId:Int) {
-		return ( tileId - Std.int( tileId / cWid ) * cWid ) * tileGridSize;
+		return ( tileId - Std.int( tileId / cWid ) * cWid ) * tileGridWidth;
 	}
 
 	/**
 		Get Y pixel coordinate (in atlas image) from a specified tile ID
 	**/
 	public inline function getAtlasY(tileId:Int) {
-		return Std.int( tileId / cWid ) * tileGridSize;
+		return Std.int( tileId / cWid ) * tileGridHeight;
 	}
 
 	/**
@@ -82,7 +84,7 @@ class Tileset {
 		WARNING: tile spacing is not supported yet!
 	**/
 	public inline function getTileIdFromCoords(pixelX:Int, pixelY:Int) {
-		return Std.int( (pixelX-padding) / tileGridSize )  +  cWid * Std.int( pixelY / tileGridSize );
+		return Std.int( (pixelX-padding) / tileGridWidth )  +  cWid * Std.int( pixelY / tileGridHeight );
 	}
 
 
@@ -116,7 +118,7 @@ class Tileset {
 			return null;
 		else {
 			var atlas = getAtlasTile();
-			var t = atlas.sub( getAtlasX(tileId), getAtlasY(tileId), tileGridSize, tileGridSize );
+			var t = atlas.sub( getAtlasX(tileId), getAtlasY(tileId), tileGridWidth, tileGridWidth );
 			return switch flipBits {
 				case 0: t;
 				case 1: t.flipX(); t.setCenterRatio(0,0); t;

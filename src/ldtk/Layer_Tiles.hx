@@ -57,8 +57,8 @@ class Layer_Tiles extends ldtk.Layer {
 				if( hasAnyTileAt(cx,cy) ) {
 					for( tile in getTileStackAt(cx,cy) ) {
 						target.add(
-							cx*gridSize + pxTotalOffsetX,
-							cy*gridSize + pxTotalOffsetY,
+							cx*gridWidth + pxTotalOffsetX,
+							cy*gridHeight + pxTotalOffsetY,
 							untypedTileset.getTile(tile.tileId, tile.flipBits)
 						);
 					}
